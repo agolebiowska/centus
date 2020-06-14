@@ -1,4 +1,4 @@
-## Centuś - finane manager school project
+## Centuś - finance manager school project
 
 Application built with:
 - Java (https://www.java.com)
