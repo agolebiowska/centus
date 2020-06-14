@@ -68,9 +68,7 @@ public class Dashboard {
         XYChart.Series<String, Number> series = new XYChart.Series();
         series.setName("Amount of money spent");
 
-        List<Expense> expenses = App.user.get(Expense.class, "MONTH(created_at) = ?", this.currentMonth);
-
-        for (Iterator<Expense> i = expenses.iterator(); i.hasNext(); ) {
+        for (Iterator<Expense> i = this.expensesModels.iterator(); i.hasNext();) {
             Expense item = i.next();
 
             Calendar cal = Calendar.getInstance();
@@ -84,14 +82,15 @@ public class Dashboard {
     }
 
     private void makeYearExpensesChart() {
-        XYChart.Series<String, Number> series = new XYChart.Series();
+        XYChart.Series<String, Float> series = new XYChart.Series();
         series.setName("Amount of money spent");
 
-        List<Expense> expenses = App.user.get(Expense.class, "YEAR(created_at) = ?", this.currentYear);
+        List<Expense> expenses = App.user.
+                get(Expense.class, "YEAR(created_at) = ?", this.currentYear);
 
-        HashMap<Number, Integer> byMonth = new HashMap();
+        HashMap<Number, Float> byMonth = new HashMap();
         for (int i = 1; i < 13; ++i) {
-            byMonth.put(i, 0);
+            byMonth.put(i, 0.0f);
         }
 
         for (Iterator<Expense> i = expenses.iterator(); i.hasNext(); ) {
@@ -101,10 +100,13 @@ public class Dashboard {
             cal.setTime(item.getCreatedAt());
             int month = cal.get(Calendar.MONTH);
 
+            if (byMonth.get(month) == null) {
+                byMonth.put(month, 0.0f);
+            }
             byMonth.put(month, byMonth.get(month) + item.getValue());
         }
 
-        for (Map.Entry<Number, Integer> entry : byMonth.entrySet()) {
+        for (Map.Entry<Number, Float> entry : byMonth.entrySet()) {
             series.getData().add(new XYChart.Data(String.valueOf(entry.getKey()), entry.getValue()));
         }
 
@@ -132,14 +134,15 @@ public class Dashboard {
 
     private void setExpenses() {
         List<Expense> expenses = App.user.
-                get(Expense.class, "MONTH(created_at) = ?", this.currentMonth);
+                get(Expense.class, "MONTH(created_at) = ?", this.currentMonth).
+                orderBy("created_at desc");
 
         this.expensesModels = expenses;
     }
 
     private void calculateBudgetLeft() {
         Float amount = this.monthBudget;
-        for (Iterator<Expense> i = this.expensesModels.iterator(); i.hasNext(); ) {
+        for (Iterator<Expense> i = this.expensesModels.iterator(); i.hasNext();) {
             Expense item = i.next();
 
             amount -= Float.valueOf(item.getValue());

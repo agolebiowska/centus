@@ -46,7 +46,7 @@
             <Label text="Password" GridPane.rowIndex="2" />
             <TextField fx:id="userIdField" prefHeight="26.0" prefWidth="142.0" GridPane.rowIndex="1" />
             <PasswordField fx:id="passwordField" GridPane.rowIndex="3" />
-            <Button fx:id="loginButton" mnemonicParsing="false" onAction="#LogIn" text="Login" GridPane.rowIndex="4">
+            <Button fx:id="loginButton" mnemonicParsing="false" onAction="#LogIn" text="LogIn" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets top="20.0" />
                </GridPane.margin>

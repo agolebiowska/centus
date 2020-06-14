@@ -15,7 +15,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="centus.HomeController">
    <children>
-      <Button layoutX="879.0" layoutY="32.0" mnemonicParsing="false" onAction="#logOut" text="Logout">
+      <Button layoutX="879.0" layoutY="32.0" mnemonicParsing="false" onAction="#logOut" text="LogOut">
          <font>
             <Font name="Ubuntu" size="13.0" />
          </font>
@@ -60,7 +60,7 @@
                </font>
             </Label>
             <Button fx:id="editBudgetButton" mnemonicParsing="false" onAction="#editMonthBudget" text="Edit" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <TextField fx:id="editBudget" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="70.0" text="54" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <TextField fx:id="editBudget" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" text="54" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <font>
                   <Font size="26.0" />
                </font>
@@ -83,8 +83,8 @@
          </font>
       </Label>
       <Button fx:id="addExpenseBtn" layoutX="428.0" layoutY="32.0" mnemonicParsing="false" onAction="#addExpense" text="Add" />
-      <TextField fx:id="expenseValue" layoutX="480.0" layoutY="32.0" prefHeight="26.0" prefWidth="78.0" promptText="value" />
-      <TextField fx:id="expenseDescription" layoutX="568.0" layoutY="32.0" prefHeight="26.0" prefWidth="284.0" promptText="description" />
+      <TextField fx:id="expenseValue" layoutX="487.0" layoutY="32.0" prefHeight="26.0" prefWidth="78.0" promptText="value" />
+      <TextField fx:id="expenseDescription" layoutX="576.0" layoutY="32.0" prefHeight="26.0" prefWidth="276.0" promptText="description" />
       <Button fx:id="saveExpenseBtn" layoutX="425.0" layoutY="32.0" mnemonicParsing="false" onAction="#saveExpense" text="Save" />
    </children>
 </AnchorPane>

@@ -27,6 +27,7 @@ public class App extends Application {
         this.stage = stage;
 
         scene = new Scene(loadFXML("loginform"));
+        stage.setTitle("Centuś - Agata Gołębiowska");
         stage.setScene(scene);
         stage.show();
     }

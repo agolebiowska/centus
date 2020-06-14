@@ -22,8 +22,8 @@ public class Budget extends Model {
         this.user = App.user;
     }
 
-    public Integer getAmount() {
-        return getInteger("amount");
+    public Float getAmount() {
+        return Float.valueOf(getInteger("amount") / 100);
     }
 
     public java.sql.Date getCreatedAt() {
@@ -31,13 +31,13 @@ public class Budget extends Model {
     }
 
     public void add() {
-        this.set("amount", this.amount);
+        this.set("amount", this.amount * 100);
         this.set("user_id", this.user.getId());
         this.saveIt();
     }
 
     public void update(Integer amount) {
-        this.set("amount", amount);
+        this.set("amount", amount * 100);
         this.saveIt();
     }
 }

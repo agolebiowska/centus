@@ -24,8 +24,8 @@ public class Expense extends Model {
         this.user = App.user;
     }
 
-    public Integer getValue() {
-        return getInteger("value");
+    public Float getValue() {
+        return Float.valueOf(getInteger("value") / 100);
     }
 
     public String getDescription() {
@@ -37,7 +37,7 @@ public class Expense extends Model {
     }
 
     public void add() {
-        this.set("value", this.value);
+        this.set("value", this.value * 100);
         this.set("description", this.description);
         this.set("user_id", this.user.getId());
         this.saveIt();

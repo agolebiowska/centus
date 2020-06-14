@@ -149,6 +149,7 @@ public class HomeController {
         monthBudget.setText(String.valueOf(dashboard.getMonthBudget()));
         budgetLeft.setText(String.valueOf(dashboard.getBudgetLeft()));
 
+        expensesList.getItems().clear();
         expensesList.getItems().addAll(dashboard.getExpenses());
 
         monthBudget.setVisible(true);
