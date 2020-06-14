@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="centus.HomeController">
+   <children>
+      <Button layoutX="879.0" layoutY="32.0" mnemonicParsing="false" onAction="#logOut" text="Logout">
+         <font>
+            <Font name="Ubuntu" size="13.0" />
+         </font>
+      </Button>
+      <LineChart fx:id="monthChart" layoutY="266.0" prefHeight="320.0" prefWidth="465.0" title="Month expenses">
+        <xAxis>
+          <CategoryAxis label="Day" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis label="Amount" side="LEFT" />
+        </yAxis>
+      </LineChart>
+      <GridPane alignment="CENTER" layoutX="14.0" layoutY="15.0" prefHeight="172.0" prefWidth="301.0" AnchorPane.rightAnchor="645.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="Monthly budget" textAlignment="CENTER" GridPane.halignment="CENTER">
+               <font>
+                  <Font name="Ubuntu" size="16.0" />
+               </font>
+            </Label>
+            <Label text="Budget left" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Ubuntu" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="monthBudget" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label fx:id="budgetLeft" text="0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Button fx:id="editBudgetButton" mnemonicParsing="false" onAction="#editMonthBudget" text="Edit" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <TextField fx:id="editBudget" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="70.0" text="54" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </TextField>
+            <Button fx:id="saveBudgetButton" mnemonicParsing="false" onAction="#saveMonthBudget" text="Save" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      <LineChart fx:id="yearChart" layoutX="465.0" layoutY="266.0" prefHeight="320.0" prefWidth="465.0" title="Year expenses">
+         <xAxis>
+            <CategoryAxis label="Month" side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis label="Amount" side="LEFT" />
+         </yAxis>
+      </LineChart>
+      <ListView fx:id="expensesList" layoutX="352.0" layoutY="69.0" prefHeight="153.0" prefWidth="500.0" />
+      <Label layoutX="352.0" layoutY="35.0" text="Expenses">
+         <font>
+            <Font name="Ubuntu" size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="addExpenseBtn" layoutX="428.0" layoutY="32.0" mnemonicParsing="false" onAction="#addExpense" text="Add" />
+      <TextField fx:id="expenseValue" layoutX="480.0" layoutY="32.0" prefHeight="26.0" prefWidth="78.0" promptText="value" />
+      <TextField fx:id="expenseDescription" layoutX="568.0" layoutY="32.0" prefHeight="26.0" prefWidth="284.0" promptText="description" />
+      <Button fx:id="saveExpenseBtn" layoutX="425.0" layoutY="32.0" mnemonicParsing="false" onAction="#saveExpense" text="Save" />
+   </children>
+</AnchorPane>
